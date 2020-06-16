@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Required Core Stylesheet -->
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+
+    <!-- Optional Theme Stylesheet -->
+    <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/modalInfo.css">
+    <link rel="stylesheet" href="CSS/modalWeek.css">
+    <link rel="stylesheet" href="CSS/modal.css">
+
+    <title>Programação</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header">
+                <span id="hour">a</span>
+                <div class= "ad">ad</div>
+            </div>    
+                <div class="headerRuler">
+                    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/CARTOON_NETWORK_logo.png"
+                    alt="">
+                    <input id="search" type="text" placeholder="PROCURAR">
+                </div>
+        </header>
+        <div class="data" id="data">
+        </div>
+        <main id="schedule">
+
+        </main>
+        <aside id="selectedHour">
+            <span id="displaySelectedHour">23h</span>
+            <div class="cartoon">
+                <span class="start">23:00</span>
+                <img class="cartoonImg"
+                    src="https://i.pinimg.com/originals/8a/5d/54/8a5d54de67af98941216cf20e4bbed63.png" alt="">
+                <span class="title">Apenas um show</span>
+            </div>
+            <div class="cartoon">
+                <span class="start">23:15</span>
+                <img class="cartoonImg"
+                    src="https://i.pinimg.com/originals/8a/5d/54/8a5d54de67af98941216cf20e4bbed63.png" alt="">
+                <span class="title">Apenas um show</span>
+            </div>
+            <div class="cartoon">
+                <span class="start">23:30</span>
+                <img class="cartoonImg"
+                    src="data:image/jpeg;base64,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"
+                    alt="">
+                <span class="title">Clarêncio o Otimista</span>
+            </div>
+            <div class="cartoon">
+                <span class="start">23:45</span>
+                <img class="cartoonImg"
+                    src="data:image/jpeg;base64,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"
+                    alt="">
+                <span class="title">Clarêncio o Otimista</span>
+            </div>
+        </aside>
+        <!-- The Modal -->
+        <div id="modalInfo" class="modal">
+            <!-- Modal content -->
+            <div class="modalInfo-content">
+                <span class="closeInfo">&times;</span>
+                <div class="yellowDiv">
+                    <img class="avatarCartoonInfo"
+                            src="https://static.wixstatic.com/media/3ffe38_daa50247f6e442d3a6768b09d79755c7.png/v1/fill/w_459,h_412,al_c,q_85/3ffe38_daa50247f6e442d3a6768b09d79755c7.webp"
+                            alt="">
+                    <div class="cartoonNameInfo">
+                        <span class="slideTitle">IRMÃO DO JOREL</span><br>
+                        <span class="slideEnglishTitle">JOREL'S BROTHER</span>
+                    </div>
+                    <img class="parentalRating"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/DJCTQ_-_10.svg/1024px-DJCTQ_-_10.svg.png" alt="">                               
+                </div> 
+                <div class="infosCartoon">
+                    <h4>Segunda, 18</h4>
+                    <p class="infoCartoonDesc">Irmão do Jorel é irmão do Jorel, garoto mais popular da escola, do bairro, da cidade e
+                        provavelmente do universo por sua beleza exótica, talento descomunal e cabelos sedosos... Mas isso não...</p>
+                </div>
+                <div class="infosCartoon">
+                        <p class="infoCartoonMore"> <strong>Hora de Inicio/Fim:</strong> 17:30 - 17:45 <br>
+                             <strong>Ano de Produção:</strong>  2014 <br> 
+                             <strong>País de Origem:</strong>  Brasil <br>
+                             <strong>Classiﬁcação do Conteúdo:</strong>  Obra não publicitária brasileira, constituinte de espaço qualiﬁcado e independente <br>
+                             <strong>Classiﬁcação Indicativa:</strong>  10 anos <br>
+                            <strong>Gênero:</strong>  Animação, Comédia <br>
+                            <strong>Diretor:</strong>  Juliano Enrico <br>
+                            <strong>Casting:</strong> </p>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+        <div id="modalWeek" class="modal">
+            <!-- Modal content -->
+            <div class="modalWeek-content">
+                <span class="closeWeek">&times;</span>
+                <div class="yellowDiv">
+                    <img class="avatarCartoonWeek"
+                            src="https://static.wixstatic.com/media/3ffe38_daa50247f6e442d3a6768b09d79755c7.png/v1/fill/w_459,h_412,al_c,q_85/3ffe38_daa50247f6e442d3a6768b09d79755c7.webp"
+                            alt="">
+                    <div class="cartoonNameWeek">
+                        <span class="slideTitle">IRMÃO DO JOREL</span><br>
+                        <span class="slideEnglishTitle">JOREL'S BROTHER</span>
+                    </div>
+                    <img class="parentalRating"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/DJCTQ_-_10.svg/1024px-DJCTQ_-_10.svg.png" alt="">                               
+                </div> 
+                <div class="cartoonSchedule">
+                    <div class="scheduleCartoonWeek">
+                        <span>Domingo <br>17</span> <br>
+                        <span class="scheduleHourWeek">17:30</span>
+                    </div>
+                    <div class="scheduleCartoonWeek">
+                        <span>Segunda <br>18</span> <br>
+                        <span class="scheduleHourWeek">17:30</span>
+                    </div>
+                    <div class="scheduleCartoonWeek">    
+                        <span>Terça <br>19</span> <br>
+                        <span class="scheduleHourWeek">17:30</span>
+                    </div>
+                    <div class="scheduleCartoonWeek">
+                        <span>Quarta <br>20</span> <br>
+                        <span class="scheduleHourWeek">17:30</span>
+                    </div>
+                    <div class="scheduleCartoonWeek">
+                        <span>Quinta <br>21</span> <br>
+                        <span class="scheduleHourWeek">17:30</span>
+                    </div>
+                    <div class="scheduleCartoonWeek">
+                        <span>Sexta <br>22</span> <br>
+                        <span class="scheduleHourWeek">17:30</span>
+                    </div>
+                    <div class="scheduleCartoonWeek">
+                        <span>Sábado <br>23</span> <br>
+                        <span class="scheduleHourWeek">17:30</span>
+                    </div>   
+            </div>
+            </div>
+        </div>
+        <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                    <li class="glide__slide">
+                        <img class="slideImage"
+                            src="https://i.pinimg.com/originals/b8/ac/f4/b8acf417b4299d7b3a31cfc20e7815d5.png" alt="">
+                    </li>
+                    <li class="glide__slide">
+                        <img class="slideImage"
+                            src="https://static.wixstatic.com/media/3ffe38_daa50247f6e442d3a6768b09d79755c7.png/v1/fill/w_459,h_412,al_c,q_85/3ffe38_daa50247f6e442d3a6768b09d79755c7.webp"
+                            alt="">
+                    </li>
+                    <li class="glide__slide">
+                        <img class="slideImage"
+                            src="https://i.pinimg.com/originals/80/87/07/8087079d646ea5586809f50d6d662595.png" alt="">
+                    </li>
+                    <li class="glide__slide">
+                        <img class="slideImage"
+                            src="https://vignette.wikia.nocookie.net/stacyuniverse/images/8/8c/Quartzhuman.png/revision/latest?cb=20170525220547&path-prefix=pt-br"
+                            alt="">
+                    </li>
+                    <li class="glide__slide">
+                        <img class="slideImage"
+                            src="https://2.bp.blogspot.com/-DTZ6Larc-kI/U7R3Njb6h3I/AAAAAAAAADw/FKf6DMkjyqs/s1600/rigby__oooohh___by_zj56-d4skkd2.png"
+                            alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                    < </button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">">></button>
+            </div>
+        </div>
+
+        <footer>
+            <div id="footerDescription">
+                <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/CARTOON_NETWORK_logo.png"
+                    alt="">
+                <span id="siteDescription">Jogos e vídeos grátis de Ben 10, Hora de Aventura com Finn e Jake, Apenas um
+                    show,
+                    A Turma da Mônica, O incrível mundo de gumball, Steven Universo, Titio <br> Avô,
+                    Toonix e muito mais!</span>
+            </div>
+            <div id="footerLinks">
+                <a href="">Guia para pais </a>
+                <a href=""> Dicas de segurança </a>
+                <a href=""> Programação </a>
+                <a href="">Programação Efetivamente Veiculada</a> <br>
+                <a href="">Programação Efetivamente Veiculada (HD)</a>
+                <a href="">Ajuda</a>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="JS/modalInfo.js"></script>
+    <script src="JS/modalWeek.js"></script>
+    <script src="JS/script.js"></script>
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script>
+        new Glide('.glide', {
+            startAt: 0,
+            perView: 4,
+            bound: true,
+            peek: {
+                before: 100,
+                after: 200
+            }
+        }).mount()
+    </script>
+</body>
+
+</html>
